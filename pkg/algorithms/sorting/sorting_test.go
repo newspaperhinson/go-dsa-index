@@ -49,7 +49,10 @@ func TestSort(t *testing.T) {
 		input := make([]int, len(tc.input))
 		copy(input, tc.input)
 
-		InsertionSort(input)
+		compareFunc := func(a, b int) bool {
+			return a < b
+		}
+		InsertionSort(input, compareFunc)
 
 		if !reflect.DeepEqual(input, tc.expected) {
 			t.Errorf("Test case %s failed: got %v, want %v", tc.name, input, tc.expected)

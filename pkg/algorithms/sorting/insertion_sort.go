@@ -1,6 +1,6 @@
 package sorting
 
-func InsertionSort[T any](arr []T, lessThan func(a, b T) bool) {
+func InsertionSort[S ~[]E, E any](arr S, lessThan func(a, b E) bool) {
 	for i := 1; i < len(arr); i++ {
 		key := arr[i]
 
